@@ -303,7 +303,7 @@ def _fetch_html_playwright(page_url: str) -> str:
         browser = p.chromium.launch(headless=True)
         try:
             page = browser.new_page(extra_http_headers=HEADERS)
-            page.goto(page_url, wait_until="domcontentloaded", timeout=20000)
+            page.goto(page_url, wait_until="domcontentloaded", timeout=45000)
             # Give dynamic content up to 8 s to settle; ignore if page keeps polling
             try:
                 page.wait_for_load_state("networkidle", timeout=8000)
