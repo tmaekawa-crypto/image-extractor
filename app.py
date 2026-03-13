@@ -277,7 +277,7 @@ def fetch_thumbnail_cached(url: str) -> Optional[bytes]:
         if data is None:
             return None
         pil = Image.open(io.BytesIO(data))
-        pil.thumbnail((80, 60))
+        pil.thumbnail((400, 300))
         buf = io.BytesIO()
         fmt = "PNG" if pil.mode in ("RGBA", "P") else "JPEG"
         pil.save(buf, format=fmt)
